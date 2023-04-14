@@ -89,6 +89,23 @@ for($i=0;$i<10;$i=$i+2){
     echo "<br>";
 }
 echo '<hr>';
+for($i=0;$i<10;$i=$i+2){
+    echo $i;
+    echo "<br>";
+}
 for($i=3;$i<98;$i=$i+2){
     echo $i.',';
     }
+    echo '<hr>';
+$aaa=1;
+for($i=3;$i<97;$i++){
+    for($j=3;$j<$i;$j++){
+    if($i % $j ==0 ){
+        $aaa=1;
+    }else{
+        echo $i.',';
+    }
+    }
+    }
+    
+    echo '<hr>';
