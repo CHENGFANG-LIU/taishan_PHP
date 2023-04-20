@@ -18,3 +18,22 @@ for($n=3;$n<98;$n++){
             echo $n;
     }
 }
+echo '<hr>';
+$n=3;
+while($n<98){
+    $i=2;
+    while($i<$n){
+    
+        $check=false;
+        if($n % $i == 0){
+            $check=true;
+            break;
+        }
+        $check=false;
+        $i++;
+    }
+    if($check==false){
+        echo $n;
+    }
+    $n++;
+}
