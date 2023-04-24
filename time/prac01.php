@@ -12,8 +12,14 @@ $now=strtotime(date("Y-m-d"));
 $xday=($birthday-$now)/(24*60*60);
 echo $xday;
 echo "<hr>";
-// 2021/10/05
+// 2023/04/24
 echo $day1=date("Y/m/d");
 echo "<hr>";
-// 10月5日 Tuesday
-echo $day2=date("m月d日l");
+// 4月24日 Monday
+echo $day2=date("n月j日l");
+echo "<hr>";
+// 2021-10-5 12:9:5
+echo date("Y-m-d G").(int)date("i").":".(int)date("s");
+// 今天是西元2021年10月5日 上班日(或假日)
+echo date("N")>=6?"是假日":"是工作日";
+// 利用迴圈來計算連續五個周一的日期
