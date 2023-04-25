@@ -1,7 +1,17 @@
 
 <style>
+   div{
+        width: 500px;
+
+        display: flex;
+        flex-wrap: wrap;
+    }
+    p{
+        flex-basis: 14%;
+    }
 </style>
 <?php
+
 
 echo $today=strtotime("now");
 echo '<br>';
@@ -19,11 +29,11 @@ echo $weeks=ceil(($firstDateWeek+$days)/7);
 echo '<br>';
 echo $lastDateweek = (7*$weeks-$firstDateWeek-$days);
 echo '<br>';
-echo "<table>";
+echo "<div>";
 for($i=0;$i<$weeks;$i++){
-    echo "<tr>";
+    
     for($j=0;$j<7;$j++){
-        echo "<td>";
+        echo "<p>";
         if($i==0 && $j<$firstDateWeek){
                 echo "&nbsp";
 
@@ -34,9 +44,9 @@ for($i=0;$i<$weeks;$i++){
         else{
             echo $j+7*$i-($firstDateWeek-1);
         }
-        echo "</td>";
+        echo "</p>";
     }
-    echo "</tr>";
+    
 
 }
-echo "</table>";
+echo "</div>";
