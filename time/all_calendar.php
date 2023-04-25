@@ -1,8 +1,8 @@
+
+<style>
+</style>
 <?php
-// 以表格方式呈現整個月份的日期
-// 可以在特殊日期中顯示資訊(假日或紀念日)
-// 嘗試以block box或flex box的方式製作月曆
-// 四月為例
+
 echo $today=strtotime("now");
 echo '<br>';
 echo $month=date("n");
@@ -40,9 +40,3 @@ for($i=0;$i<$weeks;$i++){
 
 }
 echo "</table>";
-
-
-// for($i=0;$i<30;$i++){
-//     $day=;
-//     echo date("j",);
-// }
