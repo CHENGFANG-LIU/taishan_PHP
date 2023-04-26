@@ -19,7 +19,18 @@ echo $weeks=ceil(($firstDateWeek+$days)/7);
 echo '<br>';
 echo $lastDateweek = (7*$weeks-$firstDateWeek-$days);
 echo '<br>';
-echo "<table>";
+echo "<table>
+        <tr>
+            <td>日</td>
+            <td>一</td>
+            <td>二</td>
+            <td>三</td>
+            <td>四</td>
+            <td>五</td>
+            <td>六</td>
+        </tr>
+";
+
 for($i=0;$i<$weeks;$i++){
     echo "<tr>";
     for($j=0;$j<7;$j++){
