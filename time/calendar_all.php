@@ -25,6 +25,9 @@ error_reporting(E_ALL);
             border: 1px solid black;
 
         }
+        .holidays{
+            background-color:red;
+        }
     </style>
 </head>
 <body>
@@ -69,41 +72,47 @@ for($i=0;$i<=$total_weeks;$i++){
                     $index_day=$eachday;
                 }else{
                 $index_day=$eachday;
-                $index_month=2;
-                while($index_month<=$this_month){
+                
+                for($index_month=2;$index_month<=$this_month;$index_month++){
                     $index_months=$index_month-1;
                     $adddays=date("t",strtotime(date("$this_year-$index_months-1")));
                     
-                    $index_day=$index_day+$adddays;
-                    $index_month++;
-                    
+                    $index_day=($index_day+$adddays);
+                    // echo "<h3>".$adddays."</h3>";
+                    // echo $index_day;
                     
 
                     
 
                 }
                 }
-                echo $index_day;
+            $index_fix=($index_day-1);    
                 
-            // switch ($data["是否放假"]) {
-            //     case '2':
-            //         echo "<div>".$eachday.$data[$index_day]['備註'].
-            //         "</div>";
+            if($data[$index_fix]["是否放假"]==2) {
+                
+                    echo "<div class='holidays'>".$eachday.$data[$index_fix]['備註'].
+                    "</div>";
 
-            //         break;
+            }
+            else{
+                echo  "<div>".$eachday.$data[$index_fix]['備註'].
+                    "</div>";
+
+            }
                 
-            //     default:
-            //     echo "<div>".$eachday."</div>";
-            //         break;
-            // }
+                
+                    
+            
 
 
         }
         // 其他年份
-        // else{
-            echo "<div>".$eachday."</div>";
+        else{
+            echo  "<div>".$eachday.
+                    "</div>";
+
             
-        // }
+        }
         // if($j<=$firstday_week_space && $i==0){
 
         }
