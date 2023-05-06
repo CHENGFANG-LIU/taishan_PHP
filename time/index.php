@@ -15,13 +15,18 @@ $today=strtotime('now');
 $tomorrow=strtotime("+1 days",$today);
 echo $tomorrow;         //1682399659
 echo date("y-m-d h:i:s",$tomorrow);   //23-04-25 02:14:19
+
 //this year
-echo date("Y",strtotime('now'));
 echo '<hr>';
+echo date("Y");
+echo date("Y",strtotime('now'));
 // this month
 echo '<hr>';
+echo date("n");
 echo date("n",strtotime('now'));
 // this day
+echo '<hr>';
+echo date("j");
 echo date("j",strtotime('now'));
 
 

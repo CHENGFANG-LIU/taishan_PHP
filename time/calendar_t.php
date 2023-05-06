@@ -1,37 +1,4 @@
-<style>table {
-    border-collapse: collapse;
-    /* border-spacing: 0; */
-}
-
-td {
-    border: 1px solid gray;
-    padding: 5px 10px;
-
-}
-
-.calendar>div {
-    border: 1px solid #ccc;
-    width: calc(100% / 7);
-    box-sizing: border-box;
-    margin-left: -1px;
-    margin-top: -1px;
-
-}
-
-.calendar {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    margin-left: 1px;
-    margin-top: 1px;
-}
-
-.today{
-    background: lightgreen;
-}
-.weekend{
-    background-color: pink ;
-}</style>
+<link rel="stylesheet" href="./style.css">
 
 <h2>月曆</h2>
 <?php
@@ -93,13 +60,13 @@ if($month==12){
 
 <div>
     <!--建立上一個月的連結，並代入上一個月的年月份資料-->
-    <a href="calendar.php?year=<?=$prevYear;?>&month=<?=$prevMonth;?>"><?=$prevMonth;?>月</a>
+    <a href="calendar_t.php?year=<?=$prevYear;?>&month=<?=$prevMonth;?>"><?=$prevMonth;?>月</a>
     
     <!--顯示當前月-->
     <span><?=$month;?>月</span>
 
     <!--建立下一個月的連結，並代入下一個月的年月份資料-->
-    <a href="calendar.php?year=<?=$nextYear;?>&month=<?=$nextMonth;?>"><?=$nextMonth;?>月</a>
+    <a href="calendar_t.php?year=<?=$nextYear;?>&month=<?=$nextMonth;?>"><?=$nextMonth;?>月</a>
 
 </div>
 <div class='calendar'>

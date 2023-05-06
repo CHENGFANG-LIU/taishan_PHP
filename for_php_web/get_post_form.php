@@ -9,6 +9,7 @@
 <body>
 <form action="target.php" method="get">
     <input type="text" name="getname">
+    <input type="number" name="n">
     <input type="submit" value="送出">
 </form>
 

@@ -1,8 +1,8 @@
 <?php
 // 傳過來的資料都是字串,因為傳過來的資料是個陣列所以一次只能用一個動作
-// echo $_GET['getname'];
+echo $_GET['getname'];
 // echo $_POST['postname'];
-echo $_POST['filename'];
+// echo $_POST['filename'];
 // 檔案要用另外的格式
 // 如果一次有很多請求就用過濾的
 
