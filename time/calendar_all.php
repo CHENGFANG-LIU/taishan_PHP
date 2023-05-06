@@ -50,6 +50,8 @@ $firstday_week_space=date("w",strtotime($firstday));
 $days=date("t",strtotime($firstday));
 $total_weeks=ceil(($firstday_week_space+$days)/7);
 $last_week_space=7-(($firstday_week_space+$days)%7);
+$finalDateTime=strtotime("$this_year-$this_month-$days");
+$finalDateWeek=date("w",$finalDateTime);
 // 讀取 JSON 文件內容
 $jsonString = file_get_contents('data.json');
 
@@ -61,11 +63,21 @@ $data = json_decode($jsonString, true);
 
 
 
-for($i=0;$i<=$total_weeks;$i++){
+for($i=0;$i<=($total_weeks-1);$i++){
     for($j=0;$j<=6;$j++){
         $eachday=$j+($i*7)-$firstday_week_space+1;
-        // 2023用政府api
-        if($this_year == 2023){
+        // 去掉所有不是當月的數字
+        if($i==0 && $j<$firstday_week_space ){
+            echo "<div>&nbsp</div>";
+
+        }
+        else if($i==($total_weeks-1) && $j>($finalDateWeek) ){
+            echo "<div>&nbsp</div>";
+            
+            
+       }
+       // 2023用政府api
+        else if($this_year == 2023){
             // 今年的第幾天
                 $index_day=0;
                 if($this_month==1){
@@ -107,14 +119,14 @@ for($i=0;$i<=$total_weeks;$i++){
 
         }
         // 其他年份
+        
         else{
             echo  "<div>".$eachday.
                     "</div>";
 
             
         }
-        // if($j<=$firstday_week_space && $i==0){
-
+        
         }
         
 
