@@ -16,18 +16,58 @@ error_reporting(E_ALL);
         .dates{
             display:flex;
             flex-wrap:wrap;
-            width:70%;
+            width:60%;
+            margin:5% auto 2% auto;
+            background-color:white;
+            padding: 20px;
+            border-radius: 25px;
             
         }
         .dates div{
-            width: calc(99% / 7);
-            height: calc(90vh / 7);
+            width: calc(100% / 7);
+            height: calc(80vh / 7);
             border: 1px solid black;
+            
+            
+
 
         }
         .holidays{
             background-color:red;
         }
+        .datebutton1{
+            position: absolute;
+            bottom:10%;
+            right:19%;
+            background-color:white;
+            border-radius:30%;
+            width: 12%;
+            height: 8%;
+            font-size:24px;
+            
+            
+        }
+        .datebutton2{
+            position: absolute;
+            bottom:10%;
+            right:44%;
+            background-color:white;
+            border-radius:30%;
+            width: 12%;
+            height: 8%;
+            font-size:24px;
+        }
+        .datebutton3{
+            position: absolute;
+            bottom:10%;
+            right:69%;
+            background-color:white;
+            border-radius:30%;
+            width: 12%;
+            height: 8%;
+            font-size:24px;
+        }
+        
     </style>
 </head>
 <body>
@@ -102,7 +142,7 @@ for($i=0;$i<=($total_weeks-1);$i++){
                 
             if($data[$index_fix]["是否放假"]==2) {
                 
-                    echo "<div class='holidays'>".$eachday.$data[$index_fix]['備註'].
+                    echo "<div class='holidays'>".$eachday."<br>".$data[$index_fix]['備註'].
                     "</div>";
 
             }
@@ -119,10 +159,14 @@ for($i=0;$i<=($total_weeks-1);$i++){
 
         }
         // 其他年份
-        
+        // 每年的假日
+        else if($this_month==1 && $eachday==1)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>開國紀念日</div>";
+        }
         else{
-            echo  "<div>".$eachday.
-                    "</div>";
+            echo  "<div>".$eachday."</div>";
 
             
         }
@@ -166,11 +210,40 @@ if($this_month==12){
     $next_year=$this_year;
     $next_month=$this_month+1;
 }
-echo '<a href="calendar_all.php?m='.$pre_month.'&y='.$pre_year.'">前一個月</a>';
-echo '<a href="calendar_all.php?m='.$next_month.'&y='.$next_year.'">後一個月</a>';
-echo $this_year;
-?>
+echo '<button class="datebutton3" ><a href="calendar_all.php?m='.$pre_month.'&y='.$pre_year.'">前一個月</a></button>';
+echo '<button class="datebutton2" ><a href="calendar_all.php?m='.$next_month.'&y='.$next_year.'">後一個月</a></button>';
+echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='.date("Y").'">回到這個月</a></button>';
 
+?>
+<style>
+<?php
+        switch ($this_month) {
+            case $this_month>9:
+                echo "body{
+                    background-color:blue;
+                }";
+                break;
+            case $this_month>6:
+                echo "body{
+                    background-color:yellow;
+                }";
+                break;
+            case $this_month>3:
+                echo "body{
+                    background-color:green;
+                }";
+                break;            
+            default:
+            echo "body{
+                background-color:black;
+            }";
+                break;
+        }
+        
+        
+        
+    ?>
+    </style>
 </body>
 </html>
 
