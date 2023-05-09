@@ -183,6 +183,45 @@ for($i=0;$i<=($total_weeks-1);$i++){
 
 
 }
+for($i=0;$i<=($total_weeks-1);$i++){
+    for($j=0;$j<=6;$j++){
+        $eachday=$j+($i*7)-$firstday_week_space+1;
+        // 去掉所有不是當月的數字
+        if($i==0 && $j<$firstday_week_space ){
+            echo "<div>&nbsp</div>";
+
+        }
+        else if($i==($total_weeks-1) && $j>($finalDateWeek) ){
+            echo "<div>&nbsp</div>";
+            
+            
+       }
+       
+        // 其他年份
+        // 每年的假日
+        else if($this_month == date("Y") && $eachday == date("j"))
+        {
+            
+            echo "<div class='holidays'><img src='./img/star.png'><br>開國紀念日</div>";
+        }
+        else{
+            echo "<div>&nbsp</div>";
+
+            
+        }
+        
+        }
+        
+
+    
+    
+    
+    
+    // }
+
+
+
+}
 
 ?>
 </div>
