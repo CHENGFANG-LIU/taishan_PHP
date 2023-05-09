@@ -17,8 +17,8 @@ error_reporting(E_ALL);
             display:flex;
             flex-wrap:wrap;
             width:60%;
-            margin:5% auto 2% auto;
-            
+            margin:1% auto 2% auto;
+            left: 20%;
             padding: 20px;
             border-radius: 25px;
             position: absolute;
@@ -28,12 +28,26 @@ error_reporting(E_ALL);
             display:flex;
             flex-wrap:wrap;
             width:60%;
-            margin:5% auto 2% auto;
+            margin:1% auto 2% auto;
             background-color:white;
             padding: 20px;
             border-radius: 25px;
             position: absolute;
             z-index: -1;
+            left: 20%;
+        }
+        #bfo{
+            display:flex;
+            flex-wrap:wrap;
+            width:60%;
+            margin:1% auto 2% auto;
+            background-color:white;
+            padding: 20px;
+            border-radius: 25px;
+            position: absolute;
+            z-index: -5;
+            height: 80vh;
+            left: 20%;
         }
         #today div{
             width: calc(100% / 7);
@@ -53,9 +67,8 @@ error_reporting(E_ALL);
 
 
         }
-        .holidays{
-            background-color:red;
-        }
+        
+        
         .datebutton1{
             position: absolute;
             bottom:10%;
@@ -88,11 +101,38 @@ error_reporting(E_ALL);
             height: 8%;
             font-size:24px;
         }
+        .rightone{
+            position: absolute;
+            left: 80%;
+            top: 50%;
+
+        }
+        .lemed{
+            position: absolute;
+            left: 0%;
+            top: 20%;
+        }
+        #wb{
+            position: absolute;
+            left: 0%;
+            top: 50%;
+        }
+        form{
+            width: 50%;
+            height: 5vh;
+        }
         
     </style>
 </head>
 <body>
-
+    <!-- 直接要輸入年月 -->
+    <form action="calendar_all.php" method="get">
+        <label >年份:</label>
+        <input type="number" name="y" placeholder="2023">
+        <label >月份:</label>
+        <input type="number" name="m" placeholder="5">
+    <input type="submit" value="送出">
+</form>
 
 <!-- 月曆本人 -->
 <div class="dates">
@@ -120,7 +160,7 @@ $jsonString = file_get_contents('data.json');
 $data = json_decode($jsonString, true);
 
 // 今天的$i
-$today_week=ceil($firstday_week_space+date('j')/7);
+$today_week=floor($firstday_week_space+date('j')/7)-1;
 
 
 
@@ -168,7 +208,7 @@ for($i=0;$i<=($total_weeks-1);$i++){
             if($data[$index_fix]["是否放假"]==2) {
                 
                     echo "<div class='holidays'>".$eachday."<br>".$data[$index_fix]['備註'].
-                    "</div>";
+                    "<br><img src='./img/holiday.png' style='width:50%'></div>";
 
             }
             else{
@@ -188,7 +228,7 @@ for($i=0;$i<=($total_weeks-1);$i++){
         else if($this_month==1 && $eachday==1)
         {
             
-            echo "<div class='holidays'>".$eachday."<br>開國紀念日</div>";
+            echo "<div class='holidays'>".$eachday."<br>開國紀念日<img src='./img/holiday.png' style='width:50%'></div>";
         }
         else{
             echo  "<div>".$eachday."</div>";
@@ -212,19 +252,18 @@ for($i=0;$i<=($total_weeks-1);$i++){
 </div>
 <div id="today">
 <?php
-if($this_year=date("Y") && $this_month=date("n")){
-    for($i=0;$i<=($total_weeks-1);$i++){
-        for($j=0;$j<=6;$j++){
+
+if($this_year== date("Y") && $this_month== date("n")){
+    for($a=0;$a<=($total_weeks-1);$a++){
+        for($b=0;$b<=6;$b++){
             
-            // 去掉所有不是當月的數字
-            if($i==$today_week && $j==date("w")){
-                echo "<div ><img src='./img/star.png' style='width:100%'></div>";
+            if($a==$today_week && $b==date("w")){
+                echo "<div ><br><img src='./img/star.png' style='width:50%'></div>";
     
             }
             else{
                 echo "<div>&nbsp</div>";
     
-                
             }
             
             }
@@ -236,6 +275,7 @@ if($this_year=date("Y") && $this_month=date("n")){
 
 ?>
 </div>
+<div id='bfo'></div>
 
 <?php
 // 上一頁下一頁
@@ -265,41 +305,73 @@ echo '<button class="datebutton2" ><a href="calendar_all.php?m='.$next_month.'&y
 echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='.date("Y").'">回到這個月</a></button>';
 
 ?>
-<style>
+
 <?php
         switch ($this_month) {
-            case $this_month>9:
-                echo "body{
-                    background-color:blue;
+            case $this_month>10:
+                echo "
+                <style>
+                body{
+                    background-color:#B0E0E6;
                     
-                }";
+                }
+                </style>
+                <img class='rightone' src='./img/whitebear.png'>
+                ";
                 break;
-            case $this_month>6:
-                echo "body{
-                    background-color:yellow;
-                }";
+            case $this_month>7:
+                echo "
+                <style>
+                body{
+                    background-color:#FFE5B4;
+                    
+                }
+                </style>
+                <img class='rightone' src='./img/cat.png'>
+                <img class='lemed' src='./img/maple.jpg'>
+                ";
                 break;
-            case $this_month>3:
-                echo "body{
-                    background-color:green;
-                    z-index=-3;
-
-                }";
-                break;            
+            case $this_month>4:
+                echo "
+                <style>
+                body{
+                    background-color:#E6E6FA;
+                    
+                }
+                </style>
+                <img class='rightone' src='./img/藍恐龍.png'>
+                ";
+                break;    
+            case $this_month>1:
+                echo "
+                <style>
+                body{
+                        background-color:#FFD9E6;
+                        
+                }
+                </style>
+                <img class='rightone' src='./img/river.png'>
+                ";
+                break;              
             default:
-            echo "body{
-                background-color:black;
-            }";
+            echo "
+                <style>
+                body{
+                    background-color:#B0E0E6;
+                    
+                }
+                </style>
+                <img class='rightone' src='./img/whitebear.png'>
+                ";
                 break;
         }
         
         
         
     ?>
-    </style>
     
     
-    
+    <img src="./img/woodboard.png" id='wb'>
 </body>
 </html>
 
