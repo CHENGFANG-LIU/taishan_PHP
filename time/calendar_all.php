@@ -18,10 +18,31 @@ error_reporting(E_ALL);
             flex-wrap:wrap;
             width:60%;
             margin:5% auto 2% auto;
+            
+            padding: 20px;
+            border-radius: 25px;
+            position: absolute;
+            
+        }
+        #today{
+            display:flex;
+            flex-wrap:wrap;
+            width:60%;
+            margin:5% auto 2% auto;
             background-color:white;
             padding: 20px;
             border-radius: 25px;
+            position: absolute;
+            z-index: -1;
+        }
+        #today div{
+            width: calc(100% / 7);
+            height: calc(80vh / 7);
+            border: 1px solid black;
             
+            
+
+
         }
         .dates div{
             width: calc(100% / 7);
@@ -97,6 +118,10 @@ $jsonString = file_get_contents('data.json');
 
 // 將 JSON 字符串轉換為 PHP 陣列
 $data = json_decode($jsonString, true);
+
+// 今天的$i
+$today_week=ceil($firstday_week_space+date('j')/7);
+
 
 
 
@@ -178,50 +203,36 @@ for($i=0;$i<=($total_weeks-1);$i++){
     
     
     
-    // }
+}
 
 
+
+
+?>
+</div>
+<div id="today">
+<?php
+if($this_year=date("Y") && $this_month=date("n")){
+    for($i=0;$i<=($total_weeks-1);$i++){
+        for($j=0;$j<=6;$j++){
+            
+            // 去掉所有不是當月的數字
+            if($i==$today_week && $j==date("w")){
+                echo "<div ><img src='./img/star.png' style='width:100%'></div>";
+    
+            }
+            else{
+                echo "<div>&nbsp</div>";
+    
+                
+            }
+            
+            }
+            
+    }
 
 }
-for($i=0;$i<=($total_weeks-1);$i++){
-    for($j=0;$j<=6;$j++){
-        $eachday=$j+($i*7)-$firstday_week_space+1;
-        // 去掉所有不是當月的數字
-        if($i==0 && $j<$firstday_week_space ){
-            echo "<div>&nbsp</div>";
 
-        }
-        else if($i==($total_weeks-1) && $j>($finalDateWeek) ){
-            echo "<div>&nbsp</div>";
-            
-            
-       }
-       
-        // 其他年份
-        // 每年的假日
-        else if($this_month == date("Y") && $eachday == date("j"))
-        {
-            
-            echo "<div class='holidays'><img src='./img/star.png'><br>開國紀念日</div>";
-        }
-        else{
-            echo "<div>&nbsp</div>";
-
-            
-        }
-        
-        }
-        
-
-    
-    
-    
-    
-    // }
-
-
-
-}
 
 ?>
 </div>
@@ -260,6 +271,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
             case $this_month>9:
                 echo "body{
                     background-color:blue;
+                    
                 }";
                 break;
             case $this_month>6:
@@ -270,6 +282,8 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
             case $this_month>3:
                 echo "body{
                     background-color:green;
+                    z-index=-3;
+
                 }";
                 break;            
             default:
@@ -283,6 +297,9 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
         
     ?>
     </style>
+    
+    
+    
 </body>
 </html>
 
