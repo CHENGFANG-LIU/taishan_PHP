@@ -1,3 +1,4 @@
+
 <?php
 ini_set('display_errors','1');
 error_reporting(E_ALL);
@@ -72,7 +73,7 @@ error_reporting(E_ALL);
         .datebutton1{
             position: absolute;
             bottom:10%;
-            right:19%;
+            right:24%;
             background-color:white;
             border-radius:30%;
             width: 12%;
@@ -94,7 +95,7 @@ error_reporting(E_ALL);
         .datebutton3{
             position: absolute;
             bottom:10%;
-            right:69%;
+            right:65%;
             background-color:white;
             border-radius:30%;
             width: 12%;
@@ -407,9 +408,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
     
     
     <img src="./img/woodboard.png" id='wb'>
-    <?php
-include('weather/weather.php');
-?>
+   
 <div id='month_rt'>
     <?php
     echo $this_year;
@@ -418,6 +417,10 @@ include('weather/weather.php');
     echo '月';
     ?>
 </div>
+<?php
+
+    @include('weather/weather.php');
+?>
 </body>
 </html>
 
