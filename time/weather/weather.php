@@ -15,10 +15,35 @@
             width: 20%;
             z-index: 7;
         }
+    
+        p{
+            position: absolute;
+            left: 30%;
+            top: 25%;
+        }
     </style>
 </head>
 <body>
-    <img id="weather1"src="./img/speak.png">
+<?php
+// 獲取 URL 返回的 JSON 字符串
+$jsonString = file_get_contents('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-061?Authorization=CWB-1A7A6B72-723E-4837-8059-6F734BC4717F&limit=1&offset=0&elementName=Wx');
+
+// 將 JSON 字符串轉換為 PHP 陣列
+$data = json_decode($jsonString, true);
+
+// 使用 print_r 函數打印 PHP 陣列
+// echo "<pre>";
+// print_r($data);
+// echo '</pre>';
+$w_today=$data["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]['elementValue'][0]['value'];
+$w_toromorrow=$data["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][7]['elementValue'][0]['value'];
+?>
+<div id="weather1">
+    <img src="./img/speak.png" style="width:100%; height:100%;">
+    <p>今天天氣是<?=$w_today?>天～<br>
+        明天天氣是<?=$w_toromorrow?>天～
+    <p>
+</div>
     
 </body>
 </html>

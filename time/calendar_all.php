@@ -139,9 +139,9 @@ error_reporting(E_ALL);
     <!-- 直接要輸入年月 -->
     <form action="calendar_all.php" method="get">
         <label >年份:</label>
-        <input type="number" name="y" placeholder="2023" value="2023">
+        <input type="number" name="y" value="2023">
         <label >月份:</label>
-        <input type="number" name="m" placeholder="5" value="5">
+        <input type="number" name="m" value="5">
     <input type="submit" value="送出">
 </form>
 
@@ -259,21 +259,7 @@ for($i=0;$i<=($total_weeks-1);$i++){
             
             echo "<div class='holidays'>".$eachday."<br>民族掃墓節<br><img src='./img/rest.png' style='width:50%'></div>";
         }
-        else if($this_month==4 && $eachday==4)
-        {
-            
-            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
-        }
-        else if($this_month==4 && $eachday==4)
-        {
-            
-            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
-        }
-        else if($this_month==4 && $eachday==4)
-        {
-            
-            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
-        }
+        
         else{
             echo  "<div>".$eachday."</div>";
 
