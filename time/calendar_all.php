@@ -124,10 +124,13 @@ error_reporting(E_ALL);
             height: 5vh;
         }
         #month_rt{
+            
             position: absolute;
-            left: 0%;
-            top: 1%;
+            left: 40%;
+            top: 0%;
             width: 20%;
+            font-size: 50px;
+            
         }
         
     </style>
@@ -136,9 +139,9 @@ error_reporting(E_ALL);
     <!-- 直接要輸入年月 -->
     <form action="calendar_all.php" method="get">
         <label >年份:</label>
-        <input type="number" name="y" placeholder="2023" >
+        <input type="number" name="y" placeholder="2023" value="2023">
         <label >月份:</label>
-        <input type="number" name="m" placeholder="5">
+        <input type="number" name="m" placeholder="5" value="5">
     <input type="submit" value="送出">
 </form>
 
@@ -147,6 +150,7 @@ error_reporting(E_ALL);
 <!-- 月曆本人 -->
 <div class="dates">
 <?php
+
 // 測試時間
 $date=date_create();
 date_date_set($date,2023,1,1);
@@ -240,6 +244,36 @@ for($i=0;$i<=($total_weeks-1);$i++){
             
             echo "<div class='holidays'>".$eachday."<br>開國紀念日<img src='./img/rest.png' style='width:50%'></div>";
         }
+        else if($this_month==2 && $eachday==28)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>和平紀念日<img src='./img/rest.png' style='width:50%'></div>";
+        }
+        else if($this_month==4 && $eachday==4)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
+        }
+        else if($this_month==4 && $eachday==5)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>民族掃墓節<br><img src='./img/rest.png' style='width:50%'></div>";
+        }
+        else if($this_month==4 && $eachday==4)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
+        }
+        else if($this_month==4 && $eachday==4)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
+        }
+        else if($this_month==4 && $eachday==4)
+        {
+            
+            echo "<div class='holidays'>".$eachday."<br>兒童節<br><img src='./img/rest.png' style='width:50%'></div>";
+        }
         else{
             echo  "<div>".$eachday."</div>";
 
@@ -268,7 +302,7 @@ if($this_year== date("Y") && $this_month== date("n")){
         for($b=0;$b<=6;$b++){
             
             if($a==$today_week && $b==date("w")){
-                echo "<div ><br><img src='./img/star.png' style='width:50%'></div>";
+                echo "<div ><br><br><img src='./img/star.png' style='width:50%'></div>";
     
             }
             else{
@@ -374,7 +408,8 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                     
                 }
                 </style>
-                <img class='rightone' src='./img/snow.png'>
+                <img class='rightone' src='./img/whitebear.png'>
+                <img class='lemed' src='./img/snow.png'>
                 ";
 
                 break;
@@ -386,6 +421,17 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
     
     
     <img src="./img/woodboard.png" id='wb'>
+    <?php
+include('weather/weather.php');
+?>
+<div id='month_rt'>
+    <?php
+    echo $this_year;
+    echo '年';
+    echo $this_month;
+    echo '月';
+    ?>
+</div>
 </body>
 </html>
 
