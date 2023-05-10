@@ -105,12 +105,14 @@ error_reporting(E_ALL);
             position: absolute;
             left: 80%;
             top: 50%;
+            width: 20%;
 
         }
         .lemed{
             position: absolute;
             left: 0%;
-            top: 20%;
+            top: 10%;
+            width: 20%;
         }
         #wb{
             position: absolute;
@@ -121,6 +123,12 @@ error_reporting(E_ALL);
             width: 50%;
             height: 5vh;
         }
+        #month_rt{
+            position: absolute;
+            left: 0%;
+            top: 1%;
+            width: 20%;
+        }
         
     </style>
 </head>
@@ -128,11 +136,13 @@ error_reporting(E_ALL);
     <!-- 直接要輸入年月 -->
     <form action="calendar_all.php" method="get">
         <label >年份:</label>
-        <input type="number" name="y" placeholder="2023">
+        <input type="number" name="y" placeholder="2023" >
         <label >月份:</label>
         <input type="number" name="m" placeholder="5">
     <input type="submit" value="送出">
 </form>
+
+
 
 <!-- 月曆本人 -->
 <div class="dates">
@@ -208,7 +218,7 @@ for($i=0;$i<=($total_weeks-1);$i++){
             if($data[$index_fix]["是否放假"]==2) {
                 
                     echo "<div class='holidays'>".$eachday."<br>".$data[$index_fix]['備註'].
-                    "<br><img src='./img/holiday.png' style='width:50%'></div>";
+                    "<br><img src='./img/rest.png' style='width:50%'></div>";
 
             }
             else{
@@ -228,7 +238,7 @@ for($i=0;$i<=($total_weeks-1);$i++){
         else if($this_month==1 && $eachday==1)
         {
             
-            echo "<div class='holidays'>".$eachday."<br>開國紀念日<img src='./img/holiday.png' style='width:50%'></div>";
+            echo "<div class='holidays'>".$eachday."<br>開國紀念日<img src='./img/rest.png' style='width:50%'></div>";
         }
         else{
             echo  "<div>".$eachday."</div>";
@@ -317,6 +327,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                 }
                 </style>
                 <img class='rightone' src='./img/whitebear.png'>
+                <img class='lemed' src='./img/snow.png'>
                 ";
                 break;
             case $this_month>7:
@@ -328,7 +339,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                 }
                 </style>
                 <img class='rightone' src='./img/cat.png'>
-                <img class='lemed' src='./img/maple.jpg'>
+                <img class='lemed' src='./img/maple.png'>
                 ";
                 break;
             case $this_month>4:
@@ -340,6 +351,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                 }
                 </style>
                 <img class='rightone' src='./img/藍恐龍.png'>
+                <img class='lemed' src='./img/lavendar2.png' >
                 ";
                 break;    
             case $this_month>1:
@@ -351,6 +363,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                 }
                 </style>
                 <img class='rightone' src='./img/river.png'>
+                <img class='lemed' src='./img/sakura.png'>
                 ";
                 break;              
             default:
@@ -361,8 +374,9 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                     
                 }
                 </style>
-                <img class='rightone' src='./img/whitebear.png'>
+                <img class='rightone' src='./img/snow.png'>
                 ";
+
                 break;
         }
         
