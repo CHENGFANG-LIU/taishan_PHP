@@ -14,6 +14,9 @@
             top: 1%;
             width: 20%;
             z-index: 7;
+            animation-name: box;
+            animation-duration: 2s;
+            font-size: 20px;
         }
     
         p{
@@ -21,6 +24,27 @@
             left: 30%;
             top: 25%;
         }
+        @keyframes box {
+  0%   { width: 0px;height: 0px;position: absolute;
+    font-size: 0px;
+     
+     left: 90%;
+     top: 10%;}
+  80%  { width: 0px;height: 0px;position: absolute;
+     
+    font-size: 0px;
+     left: 90%;
+     top: 10%;}
+  100% { width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 80%;
+            top: 1%;
+            width: 20%;
+            z-index: 7;
+            font-size: 20px;
+        }
+}
     </style>
 </head>
 <body>
