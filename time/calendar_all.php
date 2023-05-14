@@ -214,13 +214,13 @@ $today_week=floor($firstday_week_space+date('j')/7)-1;
 
 
 echo '
-<div style="font-size:40px;color:#C63300;" class="weeks">禮拜日</div>
-<div style="font-size:40px;" class="weeks">禮拜一</div>
-<div style="font-size:40px;" class="weeks">禮拜二</div>
-<div style="font-size:40px;" class="weeks">禮拜三</div>
-<div style="font-size:40px;" class="weeks">禮拜四</div>
-<div style="font-size:40px;" class="weeks">禮拜五</div>
-<div style="font-size:40px;color:#C63300;" class="weeks">禮拜六</div>';
+<div style="font-size:200%;color:#C63300;" class="weeks">禮拜日</div>
+<div style="font-size:200%;" class="weeks">禮拜一</div>
+<div style="font-size:200%;" class="weeks">禮拜二</div>
+<div style="font-size:200%;" class="weeks">禮拜三</div>
+<div style="font-size:200%;" class="weeks">禮拜四</div>
+<div style="font-size:200%;" class="weeks">禮拜五</div>
+<div style="font-size:200%;color:#C63300;" class="weeks">禮拜六</div>';
 for($i=0;$i<=($total_weeks-1);$i++){
     for($j=0;$j<=6;$j++){
         $eachday=$j+($i*7)-$firstday_week_space+1;
