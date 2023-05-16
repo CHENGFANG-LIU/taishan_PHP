@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
-    <div><label for=""><input type="text"></label></div>
+<?php
+// 資料庫的連線
+$dsn="mysql:host=localhost;charset=utf8;dbname=student";
+// 連線物件
+$pdo=new PDO($dsn,'root','');
 
-    </form>
-</body>
-</html>
+$sql="INSERT INTO `students ` VALUE  (`id`
