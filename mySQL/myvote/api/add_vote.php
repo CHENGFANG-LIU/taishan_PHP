@@ -8,11 +8,15 @@ echo "主題重複了，請換一個";
 }else{
     // $sql="INSERT INTO `topics`(`subject`, `open_time`, `close_time`, `type`) VALUES 
     // (?,?,?,?)"; 
+    
+
     // $stmt=$pdo->prepare($sql);
     // $stmt->bindParam(1,$_POST['subject']);
     // $stmt->bindParam(2,$_POST['openTime']);
     // $stmt->bindParam(3,$_POST['closeTime']);
     // $stmt->bindParam(4,$_POST['type']);
+
+
     // $stmt->execute();
 
     $sql="INSERT INTO `topics`(`subject`, `open_time`, `close_time`, `type`) 

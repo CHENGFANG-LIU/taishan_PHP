@@ -13,9 +13,9 @@
     </header>
     <main>
     <a href="./back/addVote.php">新增投票</a>
-    <a href="./editVote.php">編輯投票</a>
-    <a href="./deleteVote.php">刪除投票</a>
-    <a href="./queryVote.php">結果查詢</a>
+    <a href="editVote.php">編輯投票</a>
+    <a href="deleteVote.php">刪除投票</a>
+    <a href="queryVote.php">結果查詢</a>
     <a href=""></a>
     </main>
     <footer></footer>
