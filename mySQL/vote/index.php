@@ -8,14 +8,33 @@
 </head>
 <body>
     <header>
+        
         <a href="index.php">首頁</a>
-        <a href="result.php">結果</a>
-        <a href="login.php">登入</a>
-        <a href="reg.php">註冊</a>
+        <a href="./front?go=result.php">結果</a>
+        <a href="./front?go=login.php">登入</a>
+        <a href="./front?go=reg.php">註冊</a>
+        <a href="./front?go=vote.php">註冊</a>
     </header>
     <main>
+    
+    
         <?php
         include_once "db.php";
+        if(isset($_GET["go"])){
+            include "./front/$file";
+        }else{
+            include "./front/result.php";
+        }
+
+
+
+
+
+
+
+        
+
+
         
 
         
