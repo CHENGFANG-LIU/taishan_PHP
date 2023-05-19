@@ -1,0 +1,10 @@
+*{
+    
+}
+.topic-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+tr:nth-child(1){
+    background-color: rgb(134, 153, 238);
+}

@@ -1,7 +1,7 @@
 <?php
 include_once "../db.php";
-var_dump($_POST['description[]']);
-var_dump($_POST['description']);
+// var_dump($_POST['description[]']);
+// var_dump($_POST['description']);
 $sql_chk_subject=$pdo->query("select count(*) from `topics` where `subject`='{$_POST['subject']}'")->fetchColumn();
 echo $sql_chk_subject;
 if($sql_chk_subject){
@@ -21,10 +21,15 @@ echo "主題重複了，請換一個";
     $pdo->exec($sql_add_subject);
 
     $sql_subject_id="select `id` from `topics` where `subject`='{$_POST['subject']}'";
-    $subject_id=$pdo->query($sql_subject_id)->fetch();
+    $subject_id=$pdo->query($sql_subject_id)->fetchColumn();
     
-    $sql_add_option="INSERT INTO `options`( `description`, `subject_id`) 
-    VALUES ('[value-2]','[value-3]')"
 
+    
+    
+    foreach($_POST['description'] as $option){
+        $sql_add_option="INSERT INTO `options`( `description`, `subject_id`) 
+        VALUES ('{$option}','{$subject_id}')";
+        $pdo->exec($sql_add_option);
+    }
     
 }
