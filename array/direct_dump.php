@@ -1,5 +1,6 @@
 <?php
-function dc($arr){
+// 用來傾印陣列內容
+function dd($arr){
 echo "<pre>";  
 var_dump($arr);
 echo "</pre>";
@@ -25,5 +26,5 @@ $myarr=[
     ]
 
 ];
-dc($myarr);
+dd($myarr);
 var_dump($myarr);
