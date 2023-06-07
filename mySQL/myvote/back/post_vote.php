@@ -1,3 +1,5 @@
+<script src="../js/jquery-3.7.0.min.js"></script>
+
 <form action="../api/post_vote.php" method="post">
         <div>
             <label>主題</label>
@@ -13,19 +15,26 @@
                 <input type="datetime-local" name="closeTime">
             </div>
         </div>
+        <div >
+            <div>
+                <label>問題</label>
+                <input name="q">
+            </div>
+            <div>
+                <label>單複選</label>
+                <input name="q_type">
+            </div>
+            <div class="options">        
+                <div>
+                    <label for="description">項目：</label>
+                    <input type="text" name="q_option[]"  class="description-input">
+                    <span onclick="addOption()">+</span>
+                    <span onclick="removeOption(this)">-</span>
+                </div>
+            </div>
+        </div>
         
-        <div>
-            <label>單複選</label>
-            <input name="type">
-        </div>
-        <div class="options">        
-        <div>
-            <label for="description">項目：</label>
-            <input type="text" name="description[]"  class="description-input">
-            <span onclick="addOption()">+</span>
-            <span onclick="removeOption(this)">-</span>
-        </div>
-        </div>
+        
         
         
         <div>
