@@ -412,7 +412,7 @@ echo '<button class="datebutton1" ><a href="calendar_all.php?m='.date("n").'&y='
                     
                 }
                 </style>
-                <img class='rightone' src='./img/藍恐龍.png'>
+                <img class='rightone' src='./img/blue.png'>
                 <img class='lemed' src='./img/lavendar2.png' >
                 ";
                 break;    
